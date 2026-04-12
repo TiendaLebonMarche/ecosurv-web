@@ -1,15 +1,37 @@
---- 
-const { href, children, className = '', activeClass = 'text-primary-600 font-bold' } = Astro.props;
+---
+interface Props {
+  href: string;
+  className?: string;
+  activeClass?: string;
+}
+
+const { href, className = '', activeClass = 'text-primary-600 font-bold' } = Astro.props as Props;
+const isAnchor = href.startsWith('#');
 ---
 
-<a 
-  href={href} 
-  class={className}
-  onclick="document.querySelector('{href}').scrollIntoView({behavior: 'smooth'}); return false;"
+<a
+  href={href}
   class:list={[
     "transition-colors hover:text-primary-600",
+    className,
     activeClass
   ]}
+  data-smooth-scroll={isAnchor ? 'true' : 'false'}
 >
-  {children}
+  <slot />
 </a>
+
+<script>
+  document.querySelectorAll('a[data-smooth-scroll="true"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const anchor = link.getAttribute('href');
+      if (!anchor?.startsWith('#')) return;
+
+      const target = document.querySelector(anchor);
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>

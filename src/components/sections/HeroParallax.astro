@@ -1,9 +1,52 @@
---- 
+---
 import Metrics from '../../content/metrics.json' with { type: 'json' };
---- 
+---
 
-&lt;section id="inicio" class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-red-900/20 to-slate-900" style="--tw-gradient-stops: var(--primary-500), transparent"&gt;
-  &lt;!-- Parallax Background Layers --&gt;
-  &lt;div class="absolute inset-0"&gt;
-    &lt;!-- Deep gradient --&gt;
-    &lt;div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw
+<section id="inicio" class="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-slate-900 via-red-900/20 to-slate-900">
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(220,38,38,0.18),transparent_60%)]"></div>
+    <div class="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primary-500/20 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-primary-700/20 blur-3xl"></div>
+  </div>
+
+  <div class="container-custom relative z-10 py-20">
+    <div class="mx-auto max-w-4xl text-center">
+      <p class="mb-4 inline-flex items-center rounded-full border border-primary-300/30 bg-primary-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-200">
+        Topografía e ingeniería de precisión
+      </p>
+
+      <h1 class="text-balance text-4xl font-extrabold leading-tight text-white md:text-6xl">
+        Soluciones topográficas para proyectos
+        <span class="bg-gradient-to-r from-primary-400 to-primary-200 bg-clip-text text-transparent"> confiables y escalables</span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
+        Levantamientos con drones, avalúos, peritajes y consultoría catastral en Bucaramanga y toda Colombia.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="#contacto" class="btn-primary">Solicitar cotización</a>
+        <a href="#servicios" class="btn-secondary">Ver servicios</a>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <article class="rounded-xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-sm">
+        <p class="text-2xl font-bold text-white">{Metrics.kilometrosMedidos}</p>
+        <p class="mt-1 text-sm text-slate-300">Kilómetros medidos</p>
+      </article>
+      <article class="rounded-xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-sm">
+        <p class="text-2xl font-bold text-white">{Metrics.regionesAtendidas}</p>
+        <p class="mt-1 text-sm text-slate-300">Regiones atendidas</p>
+      </article>
+      <article class="rounded-xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-sm">
+        <p class="text-2xl font-bold text-white">{Metrics.puntosGPS}</p>
+        <p class="mt-1 text-sm text-slate-300">Puntos GPS</p>
+      </article>
+      <article class="rounded-xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-sm">
+        <p class="text-2xl font-bold text-white">{Metrics.sesionesIGAC}</p>
+        <p class="mt-1 text-sm text-slate-300">Sesiones IGAC</p>
+      </article>
+    </div>
+  </div>
+</section>

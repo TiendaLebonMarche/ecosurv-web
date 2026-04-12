@@ -1,42 +1,50 @@
---- 
+---
 import Company from '../../content/company.json' with { type: 'json' };
+
+const instagramUser = (Company.instagram ?? '').replace('@', '').trim();
+const facebookPath = encodeURIComponent((Company.facebook ?? '').trim());
+const instagramHref = instagramUser ? `https://instagram.com/${instagramUser}` : '#';
+const facebookHref = facebookPath ? `https://facebook.com/${facebookPath}` : '#';
 ---
 
 <footer class="bg-corporate-900 text-white">
   <div class="container-custom section">
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
       <div>
-        <h3 class="text-2xl font-bold text-primary-400 mb-4">ECOSURVEY</h3>
-        <p class="text-corporate-300 mb-4">{Company.mision.substring(0, 120)}...</p>
+        <h3 class="mb-4 text-2xl font-bold text-primary-400">ECOSURVEY</h3>
+        <p class="mb-4 text-corporate-300">{Company.mision.substring(0, 120)}...</p>
         <div class="space-y-2 text-sm">
           <p>{Company.direccion}</p>
           <p>{Company.telefono}</p>
         </div>
       </div>
+
       <div>
-        <h4 class="text-lg font-semibold mb-4">Servicios</h4>
+        <h4 class="mb-4 text-lg font-semibold">Servicios</h4>
         <ul class="space-y-2 text-corporate-300">
-          <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Topografía con Drones</a></li>
-          <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Avalúos Catastrales</a></li>
-          <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Peritajes Judiciales</a></li>
-          <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Catastro Multipropósito</a></li>
+          <li><a href="#servicios" class="transition-colors hover:text-primary-400">Topografía con Drones</a></li>
+          <li><a href="#servicios" class="transition-colors hover:text-primary-400">Avalúos Catastrales</a></li>
+          <li><a href="#servicios" class="transition-colors hover:text-primary-400">Peritajes Judiciales</a></li>
+          <li><a href="#servicios" class="transition-colors hover:text-primary-400">Catastro Multipropósito</a></li>
         </ul>
       </div>
+
       <div>
-        <h4 class="text-lg font-semibold mb-4">Contacto</h4>
+        <h4 class="mb-4 text-lg font-semibold">Contacto</h4>
         <ul class="space-y-2 text-corporate-300">
           <li>📧 {Company.email}</li>
           <li>📱 {Company.whatsapp}</li>
           <li>🌐 {Company.web}</li>
         </ul>
       </div>
+
       <div>
-        <h4 class="text-lg font-semibold mb-4">Sigue</h4>
+        <h4 class="mb-4 text-lg font-semibold">Sigue</h4>
         <div class="flex space-x-4">
-          <a href="https://instagram.com/{Company.instagram}" class="text-xl hover:text-primary-400" aria-label="Instagram">📸</a>
-          <a href="https://facebook.com/{Company.facebook}" class="text-xl hover:text-primary-400" aria-label="Facebook">📘</a>
+          <a href={instagramHref} class="text-xl hover:text-primary-400" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📸</a>
+          <a href={facebookHref} class="text-xl hover:text-primary-400" aria-label="Facebook" target="_blank" rel="noopener noreferrer">📘</a>
         </div>
-        <p class="text-xs mt-4 text-corporate-400">© 2024 ECOSURVEY S.A.S. Todos los derechos reservados.</p>
+        <p class="mt-4 text-xs text-corporate-400">© 2024 ECOSURVEY S.A.S. Todos los derechos reservados.</p>
       </div>
     </div>
   </div>
