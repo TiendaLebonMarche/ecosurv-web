@@ -39,4 +39,9 @@
 - [ ] Cross-browser/mobile check
 - [x] Complete redesign ✅
 
-**Next:** Styling foundation (tailwind + global.css)
+### 10. Fix Tailwind Diagnostics in Editor [ ]
+- [x] Crear `postcss.config.cjs` con `tailwindcss` y `autoprefixer`
+- [x] Ajustar `.vscode/settings.json` para eliminar `unknownAtRules` falsos positivos
+- [x] Verificar build (`npm run build`) y marcar cierre
+
+**Next:** Continue with Styling Foundation tasks
