@@ -1,0 +1,19 @@
+--- 
+const { 
+  id, 
+  className = '', 
+  children 
+} = Astro.props;
+---
+
+<section id={id} class="section {className}">
+  <div class="container-custom">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    @apply py-16 md:py-24;
+  }
+</style>

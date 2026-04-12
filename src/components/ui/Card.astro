@@ -1,0 +1,20 @@
+--- 
+const { 
+  icon, 
+  title, 
+  description, 
+  category,
+  href,
+  className = '' 
+} = Astro.props;
+---
+
+<article class="card group h-full">
+  <div class="p-6 h-full flex flex-col">
+    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-400 transition-colors">
+      <i class="text-primary-600 text-xl group-hover:text-white transition-colors">{icon}</i>
+    </div>
+    <h3 class="text-xl font-bold text-corporate-900 mb-3 group-hover:text-primary-600 transition-colors">{title}</h3>
+    <p class="text-corporate-600 flex-grow mb-4">{description}</p>
+    {category && (
+      <span class="inline-block bg-primary-100 text-primary

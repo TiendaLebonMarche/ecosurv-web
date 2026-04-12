@@ -1,0 +1,60 @@
+--- 
+import Company from '../../content/company.json' with { type: 'json' };
+import Button from '../ui/Button.astro';
+---
+
+<section id="contacto" class="reveal">
+  <div class="container-custom">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Contact Info -->
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent mb-6">
+            Contáctanos
+          </h2>
+          <p class="text-xl text-corporate-600 mb-8">
+            Cotiza tu proyecto en menos de 24h. Atendemos Bucaramanga y toda Colombia.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex items-start gap-4 p-4 bg-corporate-50 rounded-xl">
+            <span class="text-2xl">📍</span>
+            <div>
+              <h4 class="font-semibold text-corporate-900">Dirección</h4>
+              <p class="text-corporate-600">{Company.direccion}</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-corporate-50 rounded-xl">
+            <span class="text-2xl">📞</span>
+            <div>
+              <h4 class="font-semibold text-corporate-900">Teléfono</h4>
+              <p class="text-corporate-600">{Company.telefono}</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-corporate-50 rounded-xl">
+            <span class="text-2xl">📱</span>
+            <div>
+              <h4 class="font-semibold text-corporate-900">WhatsApp</h4>
+              <a href="https://wa.me/{Company.whatsapp.replace(/\D/g,'')}" class="text-primary-600 hover:text-primary-700 font-semibold">{Company.whatsapp}</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-corporate-50 rounded-xl">
+            <span class="text-2xl">✉️</span>
+            <div>
+              <h4 class="font-semibold text-corporate-900">Email</h4>
+              <a href="mailto:{Company.email}" class="text-primary-600 hover:text-primary-700 font-semibold">{Company.email}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Form -->
+      <div class="card p-8">
+        <form class="space-y-6" action="/api/contact" method="POST">
+          <div>
+            <label for="nombre" class="block text-sm font-semibold text-corporate-900 mb-2">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 border border-corporate-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" />
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label for="email" class="block text-sm font-semibold text-corporate-900 mb-2">Email</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-

@@ -1,0 +1,15 @@
+--- 
+const { href, children, className = '', activeClass = 'text-primary-600 font-bold' } = Astro.props;
+---
+
+<a 
+  href={href} 
+  class={className}
+  onclick="document.querySelector('{href}').scrollIntoView({behavior: 'smooth'}); return false;"
+  class:list={[
+    "transition-colors hover:text-primary-600",
+    activeClass
+  ]}
+>
+  {children}
+</a>

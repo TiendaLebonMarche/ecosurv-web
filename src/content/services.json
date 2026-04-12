@@ -1,0 +1,93 @@
+[
+  {
+    "id": "levantamiento-drones",
+    "titulo": "Levantamiento topográfico + drones",
+    "descripcion": "Topografía de alta precisión con drones. Generación de ortomosaicos, cartografía digital y modelos 3D.",
+    "icono": "drone",
+    "categoria": "topografia"
+  },
+  {
+    "id": "deslinde-amojonamiento",
+    "titulo": "Deslinde y amojonamiento",
+    "descripcion": "Determinación precisa de límites prediales con tecnología GNSS y drones. Definición de linderos e instalación de mojones.",
+    "icono": "marker",
+    "categoria": "topografia"
+  },
+  {
+    "id": "subdivision-predios",
+    "titulo": "Subdivisión de predios",
+    "descripcion": "Diseño y ejecución de subdivisiones prediales cumpliendo normatividad vigente. Levantamientos, planos y gestión de trámites.",
+    "icono": "map",
+    "categoria": "topografia"
+  },
+  {
+    "id": "batimetria",
+    "titulo": "Batimetría e ingeniería",
+    "descripcion": "Levantamientos en cuerpos de agua con tecnología especializada para proyectos hidráulicos y ambientales.",
+    "icono": "water",
+    "categoria": "topografia"
+  },
+  {
+    "id": "catastro-multiproposito",
+    "titulo": "Consultoría en Catastro Multipropósito",
+    "descripcion": "Expertos en gestión y actualización catastral. Precisión en avalúos, deslindes y administración de información territorial.",
+    "icono": "clipboard",
+    "categoria": "catastro"
+  },
+  {
+    "id": "avaluos-raa",
+    "titulo": "Avalúos Topográficos con Registro RAA",
+    "descripcion": "Avalúos certificados en 11 categorías con registro RAA activo. Precisión y respaldo legal.",
+    "icono": "certificate",
+    "categoria": "catastro"
+  },
+  {
+    "id": "pertenencias",
+    "titulo": "Pertenencias",
+    "descripcion": "Estudios técnicos para la legalización y titulación de predios. Análisis documental y levantamientos precisos.",
+    "icono": "document",
+    "categoria": "catastro"
+  },
+  {
+    "id": "sismica-petrolera",
+    "titulo": "Consultoría en Sísmica Petrolera 2D y 3D",
+    "descripcion": "Experiencia en consultoría de proyectos sísmicos petroleros en Colombia. Análisis, estudios y soporte técnico especializado.",
+    "icono": "oil",
+    "categoria": "petrolero"
+  },
+  {
+    "id": "servidumbres",
+    "titulo": "Servidumbres eléctricas/petroleras",
+    "descripcion": "Levantamientos y legalización de servidumbres para infraestructura eléctrica y petrolera. Estudios precisos y gestión técnica.",
+    "icono": "bolt",
+    "categoria": "petrolero"
+  },
+  {
+    "id": "infraestructura",
+    "titulo": "Vías - Alcantarillado - Acueducto",
+    "descripcion": "Topografía y diseño básico para vías, acueductos y alcantarillados. Levantamientos precisos que optimizan proyectos de infraestructura.",
+    "icono": "road",
+    "categoria": "petrolero"
+  },
+  {
+    "id": "perito-justicia",
+    "titulo": "Perito auxiliar de justicia",
+    "descripcion": "Peritajes especializados con más de 35 años de experiencia. Informes técnicos y avalúos que respaldan procesos judiciales.",
+    "icono": "scale",
+    "categoria": "peritajes"
+  },
+  {
+    "id": "lucro-cesante",
+    "titulo": "Lucro cesante y daño emergente",
+    "descripcion": "Cuantificación técnica de lucro cesante y daño emergente. Peritajes especializados como soporte en procesos judiciales.",
+    "icono": "chart",
+    "categoria": "peritajes"
+  },
+  {
+    "id": "derecho-civil",
+    "titulo": "Derecho civil - Derecho de familia",
+    "descripcion": "Asesoría jurídica especializada en derecho civil y de familia. Sucesión, divorcio, partición de bienes, custodia y alimentos.",
+    "icono": "gavel",
+    "categoria": "peritajes"
+  }
+]
