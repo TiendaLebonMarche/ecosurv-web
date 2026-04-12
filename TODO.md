@@ -1,14 +1,12 @@
 # TODO - Revisión integral y estabilización
 
-## Plan aprobado
-1. [ ] Reparar `src/components/sections/HeroParallax.astro` (archivo corrupto/escapado).
-2. [ ] Reparar `src/components/sections/Contact.astro` (archivo truncado + href dinámicos inválidos).
-3. [ ] Corregir `src/components/layout/Footer.astro` (href dinámicos de redes).
-4. [ ] Corregir `src/components/ui/AnchorLink.astro` (onclick/atributos inválidos).
-5. [ ] Revisar y ajustar tipados base (`Button.astro` y relacionados) si rompe chequeos.
-6. [ ] Ejecutar validación técnica (`npm run build` y/o `npm run astro check`) y corregir errores.
-7. [ ] Dejar estado final prolijo y sin errores.
-
-## Progreso
-- [x] Plan aprobado por el usuario.
-- [ ] Implementación en curso.
+- [ ] Releer archivos sospechosos completos:
+  - [ ] `src/components/layout/Layout.astro`
+  - [ ] `src/components/ui/Button.astro`
+  - [ ] `src/components/ui/Card.astro`
+  - [ ] `src/components/ui/Section.astro`
+  - [ ] `src/components/ui/AnchorLink.astro`
+- [ ] Corregir problemas reales detectados en sintaxis/markup/clases.
+- [ ] Validar consistencia funcional básica (anclas, menú móvil, filtros, contacto).
+- [ ] Ejecutar `npm run build` para validación final.
+- [ ] Entregar informe final de hallazgos y correcciones.

@@ -1,9 +1,47 @@
---- 
+---
 import Company from '../../content/company.json' with { type: 'json' };
-const { title = 'ECOSURVEY | Topografía e Ingeniería en Bucaramanga', description = 'Empresa líder en levantamiento topográfico con drones, avalúos catastrales certificados, peritajes judiciales y consultoría en Santander. +25 años de experiencia.', image = '/og-cover.jpg' } = Astro.props;
---- 
 
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'ECOSURVEY | Topografía e Ingeniería en Bucaramanga',
+  description = 'Empresa líder en levantamiento topográfico con drones, avalúos catastrales certificados, peritajes judiciales y consultoría en Santander. +25 años de experiencia.',
+  image = '/og-cover.jpg',
+} = Astro.props as Props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://topografiaeingenieria.com').toString();
+const imageUrl = new URL(image, Astro.site ?? 'https://topografiaeingenieria.com').toString();
+---
 <!doctype html>
 <html lang="es" class="scroll-smooth">
   <head>
-    <meta charset="UTF
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={Company.nombreComercial} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={Company.nombreComercial} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

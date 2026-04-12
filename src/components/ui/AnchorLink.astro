@@ -7,6 +7,8 @@ interface Props {
 
 const { href, className = '', activeClass = 'text-primary-600 font-bold' } = Astro.props as Props;
 const isAnchor = href.startsWith('#');
+const currentPath = Astro.url.pathname;
+const isActive = !isAnchor && (href === currentPath || (href !== '/' && currentPath.startsWith(href)));
 ---
 
 <a
@@ -14,7 +16,7 @@ const isAnchor = href.startsWith('#');
   class:list={[
     "transition-colors hover:text-primary-600",
     className,
-    activeClass
+    isActive && activeClass
   ]}
   data-smooth-scroll={isAnchor ? 'true' : 'false'}
 >

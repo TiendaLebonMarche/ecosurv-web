@@ -6,7 +6,7 @@ const {
 } = Astro.props;
 ---
 
-<section id={id} class="section {className}">
+<section id={id} class:list={['section', className]}>
   <div class="container-custom">
     <slot />
   </div>
