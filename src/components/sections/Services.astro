@@ -36,24 +36,24 @@ const iconMap: Record<string, string> = {
 };
 ---
 
-<section id="servicios" class="section bg-corporate-50">
+<section id="servicios" class="section bg-gradient-to-b from-neutral-50 to-white">
   <div class="container-custom">
     <div class="mb-10 text-center reveal">
       <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">Servicios especializados</p>
-      <h2 class="mb-4 font-display text-3xl font-bold text-corporate-900 md:text-4xl">Soluciones integrales en topografía e ingeniería</h2>
-      <p class="mx-auto max-w-3xl text-corporate-600">
+      <h2 class="mb-4 font-display text-3xl font-bold text-neutral-900 md:text-4xl">Soluciones integrales en topografía e ingeniería</h2>
+      <p class="mx-auto max-w-3xl text-neutral-600">
         Atendemos proyectos técnicos en Bucaramanga y toda Colombia con precisión, respaldo legal y tecnología de punta.
       </p>
     </div>
 
-    <div class="mb-8 flex flex-wrap gap-2 reveal" role="tablist" aria-label="Filtrar servicios por categoría">
+    <div class="mb-8 flex flex-wrap justify-center gap-2 reveal" role="tablist" aria-label="Filtrar servicios por categoría">
       {categories.map((category, index) => (
         <button
           type="button"
-          class={`service-filter rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+          class={`service-filter rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 ${
             index === 0
-              ? 'border-primary-600 bg-primary-600 text-white'
-              : 'border-corporate-300 bg-white text-corporate-700 hover:border-primary-400 hover:text-primary-600'
+              ? 'border-primary-600 bg-primary-600 text-white shadow-glow'
+              : 'border-neutral-300 bg-white text-neutral-700 hover:border-primary-400 hover:text-primary-600 hover:-translate-y-0.5'
           }`}
           data-filter={category.key}
           role="tab"
@@ -71,12 +71,12 @@ const iconMap: Record<string, string> = {
           data-category={service.categoria}
           aria-labelledby={`${service.id}-title`}
         >
-          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary-50 text-2xl">
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-2xl transition-transform duration-300 group-hover:scale-110">
             {iconMap[service.icono] ?? '📌'}
           </div>
-          <h3 id={`${service.id}-title`} class="mb-3 text-xl font-semibold text-corporate-900">{service.titulo}</h3>
-          <p class="mb-4 text-sm leading-relaxed text-corporate-600">{service.descripcion}</p>
-          <span class="inline-flex rounded-full bg-corporate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-corporate-700">
+          <h3 id={`${service.id}-title`} class="mb-3 text-xl font-semibold text-neutral-900">{service.titulo}</h3>
+          <p class="mb-4 text-sm leading-relaxed text-neutral-600">{service.descripcion}</p>
+          <span class="inline-flex rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-neutral-700">
             {service.categoria}
           </span>
         </article>
@@ -106,9 +106,10 @@ const iconMap: Record<string, string> = {
       button.classList.toggle('border-primary-600', selected);
       button.classList.toggle('bg-primary-600', selected);
       button.classList.toggle('text-white', selected);
-      button.classList.toggle('border-corporate-300', !selected);
+      button.classList.toggle('shadow-glow', selected);
+      button.classList.toggle('border-neutral-300', !selected);
       button.classList.toggle('bg-white', !selected);
-      button.classList.toggle('text-corporate-700', !selected);
+      button.classList.toggle('text-neutral-700', !selected);
     });
   };
 

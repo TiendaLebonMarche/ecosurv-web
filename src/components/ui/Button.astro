@@ -1,12 +1,13 @@
 ---
 interface Props {
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   target?: string;
   rel?: string;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 const {
@@ -17,9 +18,17 @@ const {
   rel,
   className = '',
   type = 'button',
+  disabled = false,
 } = Astro.props as Props;
 
-const variantClass = variant === 'secondary' ? 'btn-secondary' : 'btn-primary';
+const variantClass =
+  variant === 'secondary'
+    ? 'btn-secondary'
+    : variant === 'ghost'
+      ? 'btn-ghost'
+      : variant === 'outline'
+        ? 'btn-outline'
+        : 'btn-primary';
 
 const sizeClass =
   size === 'sm'
@@ -28,7 +37,12 @@ const sizeClass =
       ? 'px-8 py-4 text-lg'
       : 'px-6 py-3 text-base';
 
-const classes = [variantClass, sizeClass, className].join(' ').trim();
+const classes = [
+  variantClass,
+  sizeClass,
+  disabled && 'pointer-events-none opacity-60',
+  className
+].filter(Boolean).join(' ').trim();
 ---
 
 {
@@ -37,7 +51,7 @@ const classes = [variantClass, sizeClass, className].join(' ').trim();
       <slot />
     </a>
   ) : (
-    <button type={type} class={classes}>
+    <button type={type} class={classes} disabled={disabled}>
       <slot />
     </button>
   )

@@ -7,62 +7,62 @@ const whatsappHref = primaryWhatsapp ? `https://wa.me/${primaryWhatsapp}` : '#';
 const emailHref = `mailto:${Company.email}`;
 ---
 
-<section id="contacto" class="section reveal bg-white">
+<section id="contacto" class="section reveal bg-neutral-950 text-white">
   <div class="container-custom">
     <div class="grid items-start gap-12 lg:grid-cols-2">
       <div class="space-y-8">
         <div>
-          <h2 class="mb-6 text-4xl font-bold text-corporate-900 md:text-5xl">Contáctanos</h2>
-          <p class="text-xl text-corporate-600">
+          <h2 class="mb-6 font-display text-4xl font-bold md:text-5xl">Contáctanos</h2>
+          <p class="text-xl text-neutral-300">
             Cotiza tu proyecto en menos de 24h. Atendemos Bucaramanga y toda Colombia.
           </p>
         </div>
 
         <div class="grid gap-6 md:grid-cols-2">
-          <div class="rounded-xl bg-corporate-50 p-4">
-            <h4 class="font-semibold text-corporate-900">Dirección</h4>
-            <p class="text-corporate-600">{Company.direccion}</p>
+          <div class="glass p-4">
+            <h4 class="font-semibold text-white">Dirección</h4>
+            <p class="text-neutral-300">{Company.direccion}</p>
           </div>
-          <div class="rounded-xl bg-corporate-50 p-4">
-            <h4 class="font-semibold text-corporate-900">Teléfono</h4>
-            <p class="text-corporate-600">{Company.telefono}</p>
+          <div class="glass p-4">
+            <h4 class="font-semibold text-white">Teléfono</h4>
+            <p class="text-neutral-300">{Company.telefono}</p>
           </div>
-          <div class="rounded-xl bg-corporate-50 p-4">
-            <h4 class="font-semibold text-corporate-900">WhatsApp</h4>
-            <a href={whatsappHref} class="font-semibold text-primary-600 hover:text-primary-700" target="_blank" rel="noopener noreferrer">
+          <div class="glass p-4">
+            <h4 class="font-semibold text-white">WhatsApp</h4>
+            <a href={whatsappHref} class="font-semibold text-primary-300 hover:text-primary-200" target="_blank" rel="noopener noreferrer">
               {Company.whatsapp}
             </a>
           </div>
-          <div class="rounded-xl bg-corporate-50 p-4">
-            <h4 class="font-semibold text-corporate-900">Email</h4>
-            <a href={emailHref} class="font-semibold text-primary-600 hover:text-primary-700">
+          <div class="glass p-4">
+            <h4 class="font-semibold text-white">Email</h4>
+            <a href={emailHref} class="font-semibold text-primary-300 hover:text-primary-200">
               {Company.email}
             </a>
           </div>
         </div>
       </div>
 
-      <div class="card p-8">
+      <div class="glass p-8">
         <form class="space-y-6" action="#" method="post">
           <div>
-            <label for="nombre" class="mb-2 block text-sm font-semibold text-corporate-900">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" required class="w-full rounded-lg border border-corporate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary-500" />
+            <label for="nombre" class="mb-2 block text-sm font-semibold text-white">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-neutral-400 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/60" />
           </div>
 
           <div class="grid gap-4 md:grid-cols-2">
             <div>
-              <label for="email" class="mb-2 block text-sm font-semibold text-corporate-900">Email</label>
-              <input type="email" id="email" name="email" required class="w-full rounded-lg border border-corporate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary-500" />
+              <label for="email" class="mb-2 block text-sm font-semibold text-white">Email</label>
+              <input type="email" id="email" name="email" required class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-neutral-400 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/60" />
             </div>
             <div>
-              <label for="telefono" class="mb-2 block text-sm font-semibold text-corporate-900">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" class="w-full rounded-lg border border-corporate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary-500" />
+              <label for="telefono" class="mb-2 block text-sm font-semibold text-white">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-neutral-400 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/60" />
             </div>
           </div>
 
           <div>
-            <label for="mensaje" class="mb-2 block text-sm font-semibold text-corporate-900">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="5" required class="w-full rounded-lg border border-corporate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary-500"></textarea>
+            <label for="mensaje" class="mb-2 block text-sm font-semibold text-white">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-neutral-400 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/60"></textarea>
           </div>
 
           <button type="submit" class="btn-primary inline-flex w-full justify-center">Enviar solicitud</button>

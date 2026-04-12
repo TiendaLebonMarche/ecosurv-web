@@ -5,7 +5,7 @@ interface Props {
   activeClass?: string;
 }
 
-const { href, className = '', activeClass = 'text-primary-600 font-bold' } = Astro.props as Props;
+const { href, className = '', activeClass = 'text-primary-600 font-semibold glow-border rounded-md px-2 py-1' } = Astro.props as Props;
 const isAnchor = href.startsWith('#');
 const currentPath = Astro.url.pathname;
 const isActive = !isAnchor && (href === currentPath || (href !== '/' && currentPath.startsWith(href)));
@@ -14,7 +14,7 @@ const isActive = !isAnchor && (href === currentPath || (href !== '/' && currentP
 <a
   href={href}
   class:list={[
-    "transition-colors hover:text-primary-600",
+    "transition-all duration-300 text-neutral-700 hover:text-primary-600",
     className,
     isActive && activeClass
   ]}

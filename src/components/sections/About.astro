@@ -29,33 +29,33 @@ const metricItems = [
 ] as const;
 ---
 
-<section id="nosotros" class="section bg-corporate-50">
+<section id="nosotros" class="section bg-white">
   <div class="container-custom grid items-start gap-10 lg:grid-cols-2">
     <div class="reveal">
       <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">Sobre ECOSURVEY</p>
-      <h2 class="mb-4 font-display text-3xl font-bold text-corporate-900 md:text-4xl">{company.nombreComercial}</h2>
-      <p class="mb-6 text-corporate-600">{company.experiencia} • {company.ubicacion}</p>
+      <h2 class="mb-4 font-display text-3xl font-bold text-neutral-900 md:text-4xl">{company.nombreComercial}</h2>
+      <p class="mb-6 text-neutral-600">{company.experiencia} • {company.ubicacion}</p>
 
       <div class="mb-6 space-y-4">
-        <article>
-          <h3 class="mb-2 text-xl font-semibold text-corporate-900">Misión</h3>
-          <p class="text-sm leading-relaxed text-corporate-600">{company.mision}</p>
+        <article class="glass p-5">
+          <h3 class="mb-2 text-xl font-semibold text-neutral-900">Misión</h3>
+          <p class="text-sm leading-relaxed text-neutral-700">{company.mision}</p>
         </article>
-        <article>
-          <h3 class="mb-2 text-xl font-semibold text-corporate-900">Visión</h3>
-          <p class="text-sm leading-relaxed text-corporate-600">{company.vision}</p>
+        <article class="glass p-5">
+          <h3 class="mb-2 text-xl font-semibold text-neutral-900">Visión</h3>
+          <p class="text-sm leading-relaxed text-neutral-700">{company.vision}</p>
         </article>
       </div>
 
       <div class="flex flex-wrap gap-2">
         {company.valores.map((valor) => (
-          <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-corporate-700 border border-corporate-200">
+          <span class="rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700">
             {valor}
           </span>
         ))}
       </div>
 
-      <p class="mt-6 inline-flex rounded-md bg-primary-600 px-3 py-1 text-xs font-semibold text-white">
+      <p class="mt-6 inline-flex rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold text-white">
         Registro RAA activo
       </p>
     </div>
@@ -66,7 +66,7 @@ const metricItems = [
           <p class="counter text-3xl font-bold text-primary-600 md:text-4xl" data-target={metrics[item.key]}>
             {metrics[item.key]}
           </p>
-          <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-corporate-600">{item.label}</p>
+          <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-neutral-600">{item.label}</p>
         </article>
       ))}
     </div>
