@@ -1,16 +1,42 @@
-# Premium Eco UX/UI Redesign (STICH: Structure, Typography, Imagery, Color, Hierarchy)
+# ECOSURVEY Premium Redesign TODO (STICH: Red/White/Black Corporate)
+## Status: [IN PROGRESS] | Colors: Red (#ef4444), White, Black
 
-## Progress
-- [ ] 1. Update tailwind.config.mjs - Eco premium color palette, extended shadows/blur/animations
-- [ ] 2. Update src/styles/global.css - Glassmorphism utilities, typed keyframes, particle effects, enhanced btns/cards
-- [ ] 3. Update UI primitives: src/components/ui/Button.astro, Card.astro, Section.astro, AnchorLink.astro - Variants, new theme
-- [ ] 4. src/components/layout/Header.astro - Sticky glassmorphic nav, mobile hamburger with slide
-- [ ] 5. src/components/sections/HeroParallax.astro - Typed title, floating particles, drone BG, counter anims
-- [ ] 6. Sections: Services (icon grid hover tilt), About (stats timeline), FAQ (smooth accordion), Contact (form + map)
-- [ ] 7. src/components/layout/Footer.astro & Layout.astro - Clean links, preload optimizations
-- [ ] 8. Review/polish src/content/*.json - Premium copy, ensure images/links valid
-- [ ] 9. Add public/images (drone hero bg, icons if needed)
-- [ ] 10. Test: npm run dev, browser verification (desktop/mobile), smooth scrolls/transitions
-- [ ] 11. Final polish: Links check, accessibility (aria), performance
+### 1. Styling Foundation [ ]
+- [ ] Update tailwind.config.mjs (red primary scale, black neutral, white accents)
+- [ ] Enhance global.css (red glows, black glassmorphism, new animations)
 
-**STICH Focus:** Eco greens (#10B981 primary), glassmorphism, Inter typography, parallax imagery, clear hierarchy with staggered reveals.
+### 2. UI Components [ ]
+- [ ] Button.astro (primary-red, secondary-white/black variants)
+- [ ] Card.astro (black/white glass, red hover accents)
+- [ ] Section.astro (staggered reveals)
+- [ ] AnchorLink.astro (smooth scroll)
+
+### 3. Header & Navigation [ ]
+- [ ] Header.astro (red logo accent, active nav underline, mobile polish)
+
+### 4. Hero Section [ ]
+- [ ] HeroParallax.astro (red gradients/particles, typed animation, metrics stagger)
+
+### 5. Services [ ]
+- [ ] Services.astro (red filter pills, SVG icons replacing emojis, portfolio cards)
+
+### 6. Content Sections [ ]
+- [ ] About.astro (timeline, team cards, red metrics)
+- [ ] FAQ.astro (black accordion with red active)
+- [ ] Contact.astro (premium form validation, map, success animation)
+
+### 7. Footer & Layout [ ]
+- [ ] Footer.astro (social icons, newsletter, quick links)
+- [ ] Layout.astro (loading states, meta)
+
+### 8. Content & Assets [ ]
+- [ ] Polish JSON content
+- [ ] Add SVGs/images if needed
+
+### 9. Testing & Final Polish [ ]
+- [ ] Live testing (localhost:4321)
+- [ ] Performance optimization
+- [ ] Cross-browser/mobile check
+- [x] Complete redesign ✅
+
+**Next:** Styling foundation (tailwind + global.css)
