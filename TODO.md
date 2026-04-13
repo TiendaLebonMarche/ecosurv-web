@@ -1,47 +1,15 @@
-# ECOSURVEY Premium Redesign TODO (STICH: Red/White/Black Corporate)
-## Status: [IN PROGRESS] | Colors: Red (#ef4444), White, Black
+# Parallax Hero Integration TODO
 
-### 1. Styling Foundation [ ]
-- [ ] Update tailwind.config.mjs (red primary scale, black neutral, white accents)
-- [ ] Enhance global.css (red glows, black glassmorphism, new animations)
+## Plan Summary
+Integrate professional GSAP/Lenis parallax scrolling hero with Colombian mountains/drone imagery, preserving existing content/metrics.
 
-### 2. UI Components [ ]
-- [ ] Button.astro (primary-red, secondary-white/black variants)
-- [ ] Card.astro (black/white glass, red hover accents)
-- [ ] Section.astro (staggered reveals)
-- [ ] AnchorLink.astro (smooth scroll)
+## Steps
+- [ ] 1. Install dependencies: `@astrojs/react gsap @gsap/react @studio-freight/lenis`
+- [x] 2. Update `astro.config.mjs`: Add React integration
+- [x] 3. Update `src/styles/global.css`: Add parallax CSS classes
+- [x] 4. Create `src/components/ui/ParallaxHero.tsx`: React component with themed parallax + hero overlay
+- [x] 5. Update `src/components/sections/HeroParallax.astro`: Use new React component
+- [ ] 6. Run `npm install && npm run dev`
+- [ ] 7. Test parallax effect with browser_action on localhost
 
-### 3. Header & Navigation [ ]
-- [ ] Header.astro (red logo accent, active nav underline, mobile polish)
-
-### 4. Hero Section [ ]
-- [ ] HeroParallax.astro (red gradients/particles, typed animation, metrics stagger)
-
-### 5. Services [ ]
-- [ ] Services.astro (red filter pills, SVG icons replacing emojis, portfolio cards)
-
-### 6. Content Sections [ ]
-- [ ] About.astro (timeline, team cards, red metrics)
-- [ ] FAQ.astro (black accordion with red active)
-- [ ] Contact.astro (premium form validation, map, success animation)
-
-### 7. Footer & Layout [ ]
-- [ ] Footer.astro (social icons, newsletter, quick links)
-- [ ] Layout.astro (loading states, meta)
-
-### 8. Content & Assets [ ]
-- [ ] Polish JSON content
-- [ ] Add SVGs/images if needed
-
-### 9. Testing & Final Polish [ ]
-- [ ] Live testing (localhost:4321)
-- [ ] Performance optimization
-- [ ] Cross-browser/mobile check
-- [x] Complete redesign ✅
-
-### 10. Fix Tailwind Diagnostics in Editor [ ]
-- [x] Crear `postcss.config.cjs` con `tailwindcss` y `autoprefixer`
-- [x] Ajustar `.vscode/settings.json` para eliminar `unknownAtRules` falsos positivos
-- [x] Verificar build (`npm run build`) y marcar cierre
-
-**Next:** Continue with Styling Foundation tasks
+**Images**: Colombian mountains (Andes/drone surveys) from Unsplash.
