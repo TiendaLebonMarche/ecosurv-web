@@ -11,5 +11,6 @@ Integrate professional GSAP/Lenis parallax scrolling hero with Colombian mountai
 - [x] 5. Update `src/components/sections/HeroParallax.astro`: Use new React component
 - [x] 6. Run `npm install && npm run dev`
 - [x] 7. Test parallax effect with browser_action on localhost
+- [x] 8. Apply Premium Minimalist Design System overhaul
 
 **Images**: Colombian mountains (Andes/drone surveys) from Unsplash.

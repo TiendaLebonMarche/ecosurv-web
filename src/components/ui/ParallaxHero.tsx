@@ -3,7 +3,13 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import Lenis from 'lenis';
+
+// Register plugin outside to avoid re-registration
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 interface HeroMetrics {
   kilometrosMedidos: string;
@@ -18,9 +24,9 @@ interface ParallaxHeroProps {
 
 export function ParallaxHero({ metrics }: ParallaxHeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const mainTimeline = useRef<gsap.core.Timeline | null>(null);
 
   useEffect(() => {
-    // 1. Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
       lerp: 0.1,
       smoothWheel: true,
@@ -33,42 +39,45 @@ export function ParallaxHero({ metrics }: ParallaxHeroProps) {
     }
     rafHandle = requestAnimationFrame(raf);
 
-    // 2. GSAP & ScrollTrigger Setup
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const triggerElement = containerRef.current;
-      if (!triggerElement) return;
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: triggerElement,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        }
-      });
-
-      // Background Parallax: Depth effect using different speeds
-      tl.to('[data-parallax-layer="1"]', { y: '15%', ease: 'none' }, 0)
-        .to('[data-parallax-layer="2"]', { y: '25%', ease: 'none' }, 0)
-        .to('[data-parallax-layer="3"]', { y: '-40%', opacity: 0, ease: 'none' }, 0)
-        .to('[data-parallax-layer="4"]', { y: '45%', ease: 'none' }, 0)
-        .to('.hero-content-main', { y: '-15%', opacity: 0, ease: 'none' }, 0);
-
-      // Refresh on init to catch correct positions
-      ScrollTrigger.refresh();
-    }, containerRef);
-
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       cancelAnimationFrame(rafHandle);
-      ctx.revert();
       lenis.destroy();
     };
   }, []);
+
+  useGSAP(() => {
+    const triggerElement = containerRef.current;
+    if (!triggerElement) return;
+
+    mainTimeline.current = gsap.timeline({
+      scrollTrigger: {
+        trigger: triggerElement,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      }
+    });
+
+    mainTimeline.current
+      .to('[data-parallax-layer="1"]', { yPercent: 15, ease: 'none' }, 0)
+      .to('[data-parallax-layer="2"]', { yPercent: 25, ease: 'none' }, 0)
+      .to('[data-parallax-layer="3"]', { yPercent: -40, opacity: 0, ease: 'none' }, 0)
+      .to('[data-parallax-layer="4"]', { yPercent: 45, ease: 'none' }, 0)
+      .to('.hero-content-main', { yPercent: -20, opacity: 0, ease: 'none' }, 0);
+
+    // Elegant Intro Animation
+    gsap.from('.hero-animate', {
+      y: 60,
+      opacity: 0,
+      duration: 1.4,
+      stagger: 0.2,
+      ease: 'power4.out',
+      delay: 0.3
+    });
+  }, { scope: containerRef });
 
   return (
     <section 
@@ -111,22 +120,22 @@ export function ParallaxHero({ metrics }: ParallaxHeroProps) {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.1),transparent_75%)]" />
         </div>
 
-        <div className="hero-content-main container-custom absolute inset-0 z-20 flex flex-col items-center justify-center">
+        <div className="hero-content-main container-custom absolute inset-0 z-20 flex flex-col items-center justify-center pt-24">
           <div className="max-w-5xl text-center">
-            <p className="mb-6 inline-flex items-center rounded-full border border-primary-400/30 bg-primary-500/10 px-6 py-2 text-xs font-bold uppercase tracking-[0.2em] text-primary-300 backdrop-blur-md">
+            <p className="hero-animate mb-8 inline-flex items-center rounded-full border border-primary-400/20 bg-primary-500/5 px-6 py-2 text-xs font-bold uppercase tracking-[0.3em] text-primary-400 backdrop-blur-xl">
               Topografía e ingeniería de precisión
             </p>
-            <h1 className="text-balance font-display text-5xl font-black leading-[1.1] text-white md:text-7xl lg:text-8xl">
+            <h1 className="hero-animate text-balance font-display text-6xl font-black leading-[1.02] tracking-tight text-white md:text-8xl lg:text-9xl">
               Soluciones topográficas
-              <span className="bg-gradient-to-r from-primary-300 via-primary-400 to-accent-400 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-primary-400 via-primary-200 to-accent-300 bg-clip-text text-transparent pb-2">
                 {' '}
-                premium, confiables y escalables
+                premium y precisas
               </span>
             </h1>
-            <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-neutral-300 md:text-2xl">
-              Levantamientos con drones, avalúos, peritajes y consultoría catastral en Bucaramanga y toda Colombia.
+            <p className="hero-animate mx-auto mt-12 max-w-3xl text-lg leading-relaxed text-neutral-400 md:text-xl lg:text-2xl font-light">
+              Líderes en levantamientos con drones, avalúos RAA y consultoría catastral. Innovación técnica con más de 35 años de respaldo legal.
             </p>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+            <div className="hero-animate mt-16 flex flex-wrap items-center justify-center gap-8">
               <a href="#contacto" className="btn-primary">Solicitar cotización</a>
               <a href="#servicios" className="btn-secondary">Explorar servicios</a>
             </div>
@@ -135,23 +144,23 @@ export function ParallaxHero({ metrics }: ParallaxHeroProps) {
       </div>
 
       {/* Metrics Section: Part of the page flow below the sticky hero */}
-      <div className="container-custom relative z-30 -mt-32 pb-24">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <article className="glass group p-8 text-center border-white/10 hover:border-primary-500/50 transition-all duration-500">
-            <p className="text-4xl font-black text-white group-hover:text-primary-400 transition-colors">{metrics.kilometrosMedidos}</p>
-            <p className="mt-2 text-sm font-bold uppercase tracking-wider text-neutral-400">Kilómetros medidos</p>
+      <div className="container-custom relative z-30 -mt-20 pb-32">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article className="glass group p-12 text-center hover:scale-[1.02] transition-all duration-700">
+            <p className="text-5xl font-black text-white group-hover:text-primary-400 transition-colors duration-500">{metrics.kilometrosMedidos}</p>
+            <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 group-hover:text-neutral-300 transition-colors">Kilómetros medidos</p>
           </article>
-          <article className="glass group p-8 text-center border-white/10 hover:border-primary-500/50 transition-all duration-500">
-            <p className="text-4xl font-black text-white group-hover:text-primary-400 transition-colors">{metrics.regionesAtendidas}</p>
-            <p className="mt-2 text-sm font-bold uppercase tracking-wider text-neutral-400">Regiones atendidas</p>
+          <article className="glass group p-12 text-center hover:scale-[1.02] transition-all duration-700">
+            <p className="text-5xl font-black text-white group-hover:text-primary-400 transition-colors duration-500">{metrics.regionesAtendidas}</p>
+            <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 group-hover:text-neutral-300 transition-colors">Regiones atendidas</p>
           </article>
-          <article className="glass group p-8 text-center border-white/10 hover:border-primary-500/50 transition-all duration-500">
-            <p className="text-4xl font-black text-white group-hover:text-primary-400 transition-colors">{metrics.puntosGPS}</p>
-            <p className="mt-2 text-sm font-bold uppercase tracking-wider text-neutral-400">Puntos GPS</p>
+          <article className="glass group p-12 text-center hover:scale-[1.02] transition-all duration-700">
+            <p className="text-5xl font-black text-white group-hover:text-primary-400 transition-colors duration-500">{metrics.puntosGPS}</p>
+            <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 group-hover:text-neutral-300 transition-colors">Puntos GPS</p>
           </article>
-          <article className="glass group p-8 text-center border-white/10 hover:border-primary-500/50 transition-all duration-500">
-            <p className="text-4xl font-black text-white group-hover:text-primary-400 transition-colors">{metrics.sesionesIGAC}</p>
-            <p className="mt-2 text-sm font-bold uppercase tracking-wider text-neutral-400">Sesiones IGAC</p>
+          <article className="glass group p-12 text-center hover:scale-[1.02] transition-all duration-700">
+            <p className="text-5xl font-black text-white group-hover:text-primary-400 transition-colors duration-500">{metrics.sesionesIGAC}</p>
+            <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 group-hover:text-neutral-300 transition-colors">Sesiones IGAC</p>
           </article>
         </div>
       </div>

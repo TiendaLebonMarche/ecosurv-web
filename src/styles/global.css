@@ -7,17 +7,17 @@ html {
 }
 
 body {
-  @apply font-sans text-neutral-900 bg-neutral-50 antialiased;
+  @apply font-sans text-neutral-200 bg-neutral-950 antialiased selection:bg-primary-500/30 selection:text-white;
   --font-display: 'Inter', ui-sans-serif;
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-glow-lg border-transparent bg-clip-padding backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 active:scale-95;
+    @apply inline-flex items-center px-10 py-4 bg-primary-600 hover:bg-primary-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all duration-500 transform hover:-translate-y-1 active:scale-95;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center px-8 py-4 bg-white/80 hover:bg-white backdrop-blur-sm text-neutral-900 font-semibold rounded-xl border-2 border-neutral-200/50 hover:border-neutral-300 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5;
+    @apply inline-flex items-center px-10 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white font-bold rounded-full border border-white/10 transition-all duration-500 hover:-translate-y-1 active:scale-95;
   }
 
   .btn-ghost {
@@ -29,11 +29,11 @@ body {
   }
 
   .card {
-    @apply bg-white/70 hover:bg-white/90 backdrop-blur-xl rounded-2xl shadow-glass-lg hover:shadow-glass-lg border border-neutral-200/50 hover:border-primary-200/30 transition-all duration-500 hover:-translate-y-2;
+    @apply bg-neutral-900/50 hover:bg-neutral-900/80 backdrop-blur-xl rounded-3xl border border-white/5 transition-all duration-500 hover:-translate-y-2;
   }
 
   .glass {
-    @apply bg-white/10 backdrop-blur-xl border border-neutral-200/30 rounded-2xl shadow-glass hover:shadow-glow;
+    @apply bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-[2rem] transition-all duration-500 hover:bg-white/[0.05];
   }
 
   .section {
@@ -106,19 +106,19 @@ body {
   .parallax__layer-img {
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transform: translateX(-50%);
     will-change: transform;
   }
 
   .parallax__layer-title {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 10;
     pointer-events: none;
     will-change: transform;
