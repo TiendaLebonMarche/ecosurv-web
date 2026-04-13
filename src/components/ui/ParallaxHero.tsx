@@ -26,11 +26,12 @@ export function ParallaxHero({ metrics }: ParallaxHeroProps) {
       smoothWheel: true,
     });
 
+    let rafHandle: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafHandle = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafHandle = requestAnimationFrame(raf);
 
     // 2. GSAP & ScrollTrigger Setup
     gsap.registerPlugin(ScrollTrigger);
@@ -54,12 +55,16 @@ export function ParallaxHero({ metrics }: ParallaxHeroProps) {
         .to('[data-parallax-layer="3"]', { y: '-40%', opacity: 0, ease: 'none' }, 0)
         .to('[data-parallax-layer="4"]', { y: '45%', ease: 'none' }, 0)
         .to('.hero-content-main', { y: '-15%', opacity: 0, ease: 'none' }, 0);
+
+      // Refresh on init to catch correct positions
+      ScrollTrigger.refresh();
     }, containerRef);
 
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      cancelAnimationFrame(rafHandle);
       ctx.revert();
       lenis.destroy();
     };
